@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      #contact {
+        background: #f4f4f4;
+        padding: 50px 0;
+      }
+
+      .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .contact-left,
+      .contact-right {
+        flex: 1;
+        margin: 20px;
+      }
+
+      .sub-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      p {
+        font-size: 18px;
+        color: #666;
+        margin: 10px 0;
+      }
+
+      .social-icons {
+        margin: 20px 0;
+      }
+
+      .social-icons a {
+        text-decoration: none;
+        color: #333;
+        margin-right: 10px;
+        font-size: 24px;
+      }
+
+      .social-icons a:hover {
+        color: #007bff;
+      }
+
+      .btn {
+        display: inline-block;
+        background: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+
+      .btn:hover {
+        background: #0056b3;
+      }
+
+      .contact-right form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .contact-right input,
+      .contact-right textarea {
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .contact-right button {
+        padding: 10px;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .contact-right button:hover {
+        background: #0056b3;
+      }
+
+      #msg {
+        margin-top: 20px;
+        font-size: 16px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="contact-left">
+            <h1 class="sub-title">Contact Me</h1>
+            <p><i class="fas fa-paper-plane"></i> shownoe@gmail.com</p>
+            <p><i class="fas fa-phone-square-alt"></i> 9086532462</p>
+          </div>
+          <div class="contact-right">
+            <form name="submit-to-google-sheet">
+              <input type="text" name="Name" placeholder="Your Name" required />
+              <input
+                type="email"
+                name="Email"
+                placeholder="Your Email"
+                required
+              />
+              <textarea
+                name="Message"
+                rows="6"
+                placeholder="Say Your Query"
+              ></textarea>
+              <button type="submit" class="btn btn2">Submit</button>
+            </form>
+            <span id="msg"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const scriptURL = "YOUR_GOOGLE_SCRIPT_URL";
+        const form = document.forms["submit-to-google-sheet"];
+        const msg = document.getElementById("msg");
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          fetch(scriptURL, { method: "POST", body: new FormData(form) })
+            .then((response) => {
+              msg.innerHTML = "Message sent successfully!";
+              setTimeout(function () {
+                msg.innerHTML = "";
+              }, 5000);
+              form.reset();
+            })
+            .catch((error) => {
+              msg.innerHTML = "Error sending message.";
+              setTimeout(function () {
+                msg.innerHTML = "";
+              }, 5000);
+            });
+        });
+      });
+    </script>
+  </body>
+</html>

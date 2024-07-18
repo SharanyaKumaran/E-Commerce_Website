@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <img class="wave" src="images/bg.jpg" />
+    <div class="container">
+      <div class="img">
+        <img src="images/shop.jpg" />
+      </div>
+      <div class="login-content">
+        <form id="loginForm">
+          <img src="images/image.png" / style="height: 200px;">
+          <h2 class="title">Welcome to Show Now</h2>
+          <div class="input-div one">
+            <div class="i">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="div">
+              <input type="text" class="input" id="username" /
+              placeholder="username">
+            </div>
+          </div>
+          <div class="input-div pass">
+            <div class="i">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div class="div">
+              <input type="password" class="input" id="password" /
+              placeholder="password">
+            </div>
+          </div>
+          <a href="#">Forgot Password?</a>
+          <input type="submit" class="btn" value="Login" />
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          if (username === "username" && password === "password") {
+            window.location.href = "Webpage/index1.html";
+          } else {
+            alert("Invalid username or password. Please try again.");
+          }
+        });
+    </script>
+  </body>
+</html>

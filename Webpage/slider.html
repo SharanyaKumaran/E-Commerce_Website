@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+      }
+      #containerSlider {
+        margin: auto;
+        width: 90%;
+        text-align: center;
+        padding-top: 100px;
+        box-sizing: border-box;
+      }
+      #containerSlider img {
+        width: 100%;
+        height: 140%;
+        text-align: center;
+        align-content: center;
+      }
+      @media (max-width: 732px) {
+        #containerSlider img {
+          height: 12em;
+        }
+      }
+      @media (max-width: 500px) {
+        #containerSlider img {
+          height: 10em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div id="containerSlider">
+        <div class="slidingImage active">
+          <img src="Images/slider1.png" alt="image1" />
+        </div>
+        <!-- <div class="slidingImage">
+          <img src="Images/slider2.jpg" alt="image2" />
+        </div>
+        <div class="slidingImage">
+          <img src="Images/slider3.png" alt="image3" />
+        </div>
+        <div class="slidingImage">
+          <img src="Images/slider4.jpg" alt="image4" />
+        </div> -->
+      </div>
+    </section>
+  </body>
+</html>
